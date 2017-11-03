@@ -216,6 +216,7 @@ namespace Xamarin.Forms
 			get { return (bool)GetValue(IsFocusedProperty); }
 		}
 
+		[TypeConverter(typeof(VisibilityConverter))]
 		public bool IsVisible
 		{
 			get { return (bool)GetValue(IsVisibleProperty); }
@@ -650,6 +651,7 @@ namespace Xamarin.Forms
 #pragma warning restore 0618
 
 			FlowController.NotifyFlowDirectionChanged();
+			ApplyStyleSheetOnParentSet();
 		}
 
 		protected virtual void OnSizeAllocated(double width, double height)
@@ -856,6 +858,27 @@ namespace Xamarin.Forms
 			public bool Focus { get; set; }
 
 			public bool Result { get; set; }
+		}
+
+		public class VisibilityConverter : TypeConverter
+		{
+			public override object ConvertFromInvariantString(string value)
+			{
+				if (value != null) {
+					if (value.Equals("true", StringComparison.OrdinalIgnoreCase))
+						return true;
+					if (value.Equals("visible", StringComparison.OrdinalIgnoreCase))
+						return true;
+					if (value.Equals("false", StringComparison.OrdinalIgnoreCase))
+						return false;
+					if (value.Equals("hidden", StringComparison.OrdinalIgnoreCase))
+						return false;
+					if (value.Equals("collapse", StringComparison.OrdinalIgnoreCase))
+						return false;
+				}
+				throw new InvalidOperationException(string.Format("Cannot convert \"{0}\" into {1}", value, typeof(bool)));
+
+			}
 		}
 	}
 }

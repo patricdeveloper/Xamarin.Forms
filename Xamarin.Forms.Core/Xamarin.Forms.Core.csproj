@@ -459,6 +459,15 @@
     <Compile Include="PlatformConfiguration\AndroidSpecific\ListView.cs" />
     <Compile Include="ITextElement.cs" />
     <Compile Include="TextElement.cs" />
+    <Compile Include="StyleSheets\IStyleSelectable.cs" />
+    <Compile Include="StyleSheets\StyleSheet.cs" />
+    <Compile Include="StyleSheets\CssReader.cs" />
+    <Compile Include="StyleSheets\CharExtensions.cs" />
+    <Compile Include="StyleSheets\TextReaderExtensions.cs" />
+    <Compile Include="StyleSheets\Selector.cs" />
+    <Compile Include="StyleSheets\Style.cs" />
+    <Compile Include="VisualElement_StyleSheet.cs" />
+    <Compile Include="StyleSheets\StylePropertyAttribute.cs" />
     <Compile Include="Internals\ResourceLoader.cs" />
     <Compile Include="Xaml\TypeConversionExtensions.cs" />
     <Compile Include="Xaml\ValueConverterProvider.cs" />
@@ -479,6 +488,7 @@
     <Compile Include="PaddingElement.cs" />
     <Compile Include="IPaddingElement.cs" />
     <Compile Include="TypeConversionAttribute.cs" />
+    <Compile Include="Element_StyleSheets.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
