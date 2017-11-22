@@ -85,7 +85,7 @@ namespace Xamarin.Forms
 				var uri = new Uri(value, UriKind.Relative); //we don't want file:// uris, even if they start with '/'
 				var resourcePath = ResourceDictionary.RDSourceTypeConverter.GetResourcePath(uri, rootTargetPath);
 				var resourceId = XamlResourceIdAttribute.GetResourceIdForPath(rootObjectType.GetTypeInfo().Assembly, resourcePath);
-				return StyleSheet.Parse(rootObjectType.GetTypeInfo().Assembly, resourceId, lineInfo);
+				return StyleSheet.LoadFromAssembly(rootObjectType.GetTypeInfo().Assembly, resourceId, lineInfo);
 			}
 
 			object IExtendedTypeConverter.ConvertFrom(CultureInfo culture, object value, IServiceProvider serviceProvider)

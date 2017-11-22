@@ -34,8 +34,8 @@ namespace Xamarin.Forms.Core.XamlC
 
 			//return StyleSheet.Parse(rootObjectType.GetTypeInfo().Assembly, resourceId, lineInfo);
 
-			var getTypeFromHandle = module.ImportReference(typeof(Type).GetMethod("GetTypeFromHandle", new[] { typeof(RuntimeTypeHandle) }));
-			var getAssembly = module.ImportReference(typeof(Type).GetProperty("Assembly").GetGetMethod());
+			var getTypeFromHandle = module.ImportReference(typeof(Type).GetMethod(nameof(Type.GetTypeFromHandle), new[] { typeof(RuntimeTypeHandle) }));
+			var getAssembly = module.ImportReference(typeof(Type).GetProperty(nameof(Type.Assembly)).GetGetMethod());
 			yield return Create(Ldtoken, module.ImportReference(((ILRootNode)rootNode).TypeReference));
 			yield return Create(Call, module.ImportReference(getTypeFromHandle));
 			yield return Create(Callvirt, module.ImportReference(getAssembly)); //assembly
@@ -45,7 +45,7 @@ namespace Xamarin.Forms.Core.XamlC
 			foreach (var instruction in node.PushXmlLineInfo(context))
 				yield return instruction; //lineinfo
 
-			var styleSheetParse = module.ImportReference(typeof(StyleSheets.StyleSheet).GetMethods().FirstOrDefault(mi => mi.Name == "Parse" && mi.GetParameters().Length == 3));
+			var styleSheetParse = module.ImportReference(typeof(StyleSheets.StyleSheet).GetMethods().FirstOrDefault(mi => mi.Name == nameof(StyleSheets.StyleSheet.LoadFromAssembly) && mi.GetParameters().Length == 3));
 			yield return Create(Call, module.ImportReference(styleSheetParse));
 		}
 	}

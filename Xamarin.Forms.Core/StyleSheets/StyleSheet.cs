@@ -17,8 +17,7 @@ namespace Xamarin.Forms.StyleSheets
 
 		internal IDictionary<Selector, Style> Styles { get; set; } = new Dictionary<Selector, Style>();
 
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public static StyleSheet Parse(Assembly assembly, string resourceId, IXmlLineInfo lineInfo = null)
+		public static StyleSheet LoadFromAssembly(Assembly assembly, string resourceId, IXmlLineInfo lineInfo = null)
 		{
 			using (var stream = assembly.GetManifestResourceStream(resourceId)) {
 				if (stream == null)
