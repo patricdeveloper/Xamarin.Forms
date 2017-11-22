@@ -3,7 +3,7 @@ using System;
 namespace Xamarin.Forms.StyleSheets
 {
 	[AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true, Inherited = true)]
-	public sealed class StylePropertyAttribute : Attribute
+	sealed class StylePropertyAttribute : Attribute
 	{
 		public string CssPropertyName { get; }
 		public string BindablePropertyName { get; }
