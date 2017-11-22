@@ -63,9 +63,9 @@ using Xamarin.Forms.StyleSheets;
 [assembly: XmlnsDefinition("http://xamarin.com/schemas/2014/forms", "Xamarin.Forms")]
 
 [assembly: StyleProperty("background-color", typeof(VisualElement), nameof(VisualElement.BackgroundColorProperty))]
-[assembly: StyleProperty("background-image", typeof(Page), nameof(Page.BackgroundImage))]
-[assembly: StyleProperty("border-color", typeof(Button), nameof(Button.BorderColor))]
-[assembly: StyleProperty("border-width", typeof(Button), nameof(Button.BorderWidth))]
+[assembly: StyleProperty("background-image", typeof(Page), nameof(Page.BackgroundImageProperty))]
+[assembly: StyleProperty("border-color", typeof(Button), nameof(BorderElement.BorderColorProperty))]
+[assembly: StyleProperty("border-width", typeof(Button), nameof(Button.BorderWidthProperty))]
 [assembly: StyleProperty("color", typeof(ITextElement), nameof(TextElement.TextColorProperty))]
 //[assembly:StyleProperty("direction", .., ..)]
 [assembly: StyleProperty("font-family", typeof(IFontElement), nameof(FontElement.FontFamilyProperty))]

@@ -489,6 +489,8 @@
     <Compile Include="IPaddingElement.cs" />
     <Compile Include="TypeConversionAttribute.cs" />
     <Compile Include="Element_StyleSheets.cs" />
+    <Compile Include="IBorderElement.cs" />
+    <Compile Include="BorderElement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
